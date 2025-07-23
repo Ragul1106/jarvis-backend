@@ -1,11 +1,15 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+import os
 import requests
-from flask_cors import CORS  
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
-CORS(app)  
+CORS(app)
 
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 @app.route("/ask", methods=["POST"])
 def ask():
