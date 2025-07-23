@@ -11,6 +11,10 @@ CORS(app)
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
+@app.route('/')
+def index():
+    return 'Jarvis Backend is Running!'
+
 @app.route("/ask", methods=["POST"])
 def ask():
     try:
